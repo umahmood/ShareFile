@@ -17,7 +17,7 @@ from fman import (
 
 __author__     = "Usman Mahmood"
 __license__    = "MIT"
-__version__    = "1.0.0"
+__version__    = "1.0.1"
 __maintainer__ = "Usman Mahmood"
 
 template = "ShareFile\n\n{0}\n\n{1}"
