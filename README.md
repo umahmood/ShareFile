@@ -26,7 +26,7 @@ Clone the repo:
 # Usage
 
 1. Place the cursor over the file you want to share.
-2. Press F9.
+2. Press Shift + s.
 3. Confirm that you want to share the file.
 
 You will get back a URL.
