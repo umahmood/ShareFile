@@ -27,9 +27,8 @@ class ShareFile(DirectoryPaneCommand):
         filepath = self.pane.get_file_under_cursor()
         if not filepath:
             return        
-
+        filepath = filepath.replace('file://', '')
         filename = path.basename(filepath)
-
         if not path.isfile(filepath):
             msg = "ShareFile: '{0}' is not a file, please select a file.".format(filename) 
             show_status_message(msg, timeout_secs=3)        

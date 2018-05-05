@@ -1,3 +1,3 @@
 [
-    { "keys": ["Shift+s"], "command": "share_file" }
+    { "keys": ["Shift+S"], "command": "share_file" }
 ]
