@@ -5,6 +5,7 @@ from os import path
 from mimetypes import types_map
 from urllib import request
 from urllib.error import URLError
+from urllib.parse import quote
 
 from fman import (
     DirectoryPaneCommand, 
@@ -23,7 +24,7 @@ __maintainer__ = "Usman Mahmood"
 template = "ShareFile\n\n{0}\n\n{1}"
 
 class ShareFile(DirectoryPaneCommand):
-    def __call__(self):        
+    def __call__(self):       
         filepath = self.pane.get_file_under_cursor()
         if not filepath:
             return        
@@ -48,9 +49,9 @@ class UploadThread(threading.Thread):
         threading.Thread.__init__(self)
         self.thread_id = tid
         self.filepath = filepath
-        self.filename = filename
+        self.filename = quote(filename)
 
-    def run(self):
+    def run(self):        
         _, ext = path.splitext(self.filename)
 
         try:
