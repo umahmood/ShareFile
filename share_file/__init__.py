@@ -82,7 +82,7 @@ class UploadThread(threading.Thread):
 
         try:
             show_status_message("ShareFile: uploading file...")
-            with request.urlopen(req, timeout=10) as resp:
+            with request.urlopen(req, timeout=86400) as resp:
                 if resp.status == 200:
                     body       = resp.read()
                     share_link = body.decode('utf-8').strip('\n')
