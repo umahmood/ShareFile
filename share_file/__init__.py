@@ -6,6 +6,7 @@ from mimetypes import types_map
 from urllib import request
 from urllib.error import URLError
 from urllib.parse import quote
+from fman.clipboard import set_text
 
 from fman import (
     DirectoryPaneCommand, 
@@ -82,11 +83,12 @@ class UploadThread(threading.Thread):
 
         try:
             show_status_message("ShareFile: uploading file...")
-            with request.urlopen(req, timeout=10) as resp:
+            with request.urlopen(req, timeout=84600) as resp:
                 if resp.status == 200:
                     body       = resp.read()
                     share_link = body.decode('utf-8').strip('\n')
                     msg        = template.format(share_link, "")
+                    set_text(share_link)
                 else:
                     msg = template.format("Could not upload file",
                                           str(resp.status) + " " + resp.reason)
